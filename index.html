@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="pokemon Icon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Orbitron:wght@400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=sort"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=filter_list"
+    />
+  </head>
+  <!-- body starts -->
+  <body class="h-screen w-screen px-6 md:px-12 pt-4 md:pt-8 bg-[#fff] overflow-x-hidden">
+    <!-- header -->
+    <header class="flex items-center">
+      <!-- image icon -->
+      <img
+        class="h-[60px] sm:h-[80px] md:h-[95px]"
+        src="icons8-pokemon-100.png"
+        alt="Image-Icon"
+      />
+      <!-- the top heading -->
+      <h1
+        id="heading-pokedex"
+        class="ml-4 font-bungee text-[30px] sm:text-[40px] md:text-[55px]"
+      >
+        Pok&eacute;dex
+      </h1>
+    </header>
+    <!-- header ends -->
+    <!-- search bar starts-->
+    <nav
+      class="grid grid-cols-[20px_1fr] items-center bg-white px-1 py-1 sm:px-2 sm:py-2 rounded-[5px] mt-3 border-black border-[2px]"
+    >
+      <!-- the magnifying glass icon -->
+      <span class="text-[15px] md:text-[18px] text-[#454444]">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </span>
+      <!-- the input tag with submit button -->
+      <div>
+        <form action="#" class="flex flex-grow w-full">
+          <!-- input tag -->
+          <input
+            id="search-bar"
+            class="w-full px-2 outline-none font-bungee text-[14px] md:text-[18px]"
+            type="text"
+            placeholder="search here"
+          />
+          <!-- submit button -->
+          <button
+            id="submit-button"
+            class="font-bungee outline-none border-amber-600 border-[3px] rounded-[3px] px-2 py-1 text-[13px] md:text-[18px]"
+            type="submit"
+          >
+            search
+          </button>
+        </form>
+      </div>
+    </nav>
+    <!-- nav completes -->
+    <!-- filter and sorting section starts -->
+    <section>
+      <!-- main div of sort and filter -->
+      <div
+        id="main-wrapper"
+        class="mt-[15px] flex items-center justify-between text-[12px] sm:text-[16px]"
+      >
+        <!-- sort button -->
+        <div
+          id="sort-wrapper-button"
+          class="border-amber-600 relative border-[3px] font-bungee px-2 py-1 cursor-pointer rounded-[4px]"
+        >
+          <span id="sort-visible-btn"
+            ><span class="mr-2 text-amber-500"
+              ><i id="sort-icon" class="fa-solid fa-sort"></i></span
+            >Sort by</span
+          >
+          <!-- sort option div -->
+          <div
+            id="sort-option-wrapper"
+            class="absolute hidden border-[3px] border-amber-600 w-auto z-1000 mt-3 bg-[#010101] py-1 rounded-[3px]"
+          >
+            <div
+              id="sort-number-box"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+                name="number"
+                id=""
+                checked
+              />
+              <label for="">Number</label>
+            </div>
+            <!-- sort name box -->
+            <div
+              id="sort-name-box"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+                name="number"
+                id=""
+              />
+              <label for="number">Name</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- filetr  -->
+        <div
+          id="filter-wrapper-button"
+          class="border-amber-600 relative border-[3px] font-bungee px-2 py-1 cursor-pointer rounded-[4px]"
+        >
+          <span id="filter-toggle-button"
+            ><span class="mr-2 text-amber-500"
+              ><i id="filter-icon" class="fa-solid fa-filter"></i></span
+            >Filters</span
+          >
+          <div
+            id="filter-options-wrapper"
+            class="absolute hidden border-[3px] border-amber-600 w-auto z-1000 mt-3 bg-[#010101] py-1 rounded-[3px]"
+          >
+            <div
+              id="filter-grass"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                name="filter"
+                id=""
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+              />
+              <label for="">Grass</label>
+            </div>
+            <div
+              id="filter-water"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                name="filter"
+                id=""
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+              />
+              <label for="">Water</label>
+            </div>
+            <div
+              id="filter-land"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                name="filter"
+                id=""
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+              />
+              <label for="">Land</label>
+            </div>
+            <div
+              id="filter-fire"
+              class="cursor-pointer flex justify-start items-center px-2 gap-2"
+            >
+              <input
+                type="radio"
+                name="filter"
+                id=""
+                class="appearance-none h-3 w-3 border-2 border-orange-600 rounded-full checked:bg-yellow-300 checked:border-amber-500"
+              />
+              <label for="">Fire</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- cards main div -->
+    <main>
+      <div id="main-container" class=" grid mt-1">
+
+                <!-- 1st column for mobile -->
+                <!-- <div id="first-column-div" class="">
+                    
+                </div> -->
+    
+                <!-- 2nd column for mobile-->
+                <!-- <div id="second-column-div" class="">
+                    
+                </div> -->
+    
+                <!-- 3rd column which will appear when screen = sm or greater -->
+                <!-- <div id="third-column-div" class=" md:block">
+                    
+                </div> -->
+    
+                <!-- 4rth column which will appear when screen will be md or greater -->
+                <!-- <div id="fourth-column-div" class="lg:block">
+                    
+                </div> -->
+    
+                <!-- 5th column which will appear after   -->
+                <!-- <div id="fifth-column-div" class="xl:block">
+                    
+                </div> -->
+            </div>
+
+         </div> 
+    </main>
+    <div  class="w-full py-2 flex justify-center items-center">
+        <svg id="load-button" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" rx="2" width="20" height="20" fill="black">
+        <animate id="spinner_FFyM" begin="0;spinner_HDCY.end" attributeName="x" dur="0.2s" values="2;28" fill="freeze"/>
+        <animate id="spinner_AIvE" begin="spinner_1FwE.end" attributeName="y" dur="0.2s" values="2;28" fill="freeze"/>
+        <animate id="spinner_wWCL" begin="spinner_gH4o.end" attributeName="x" dur="0.2s" values="28;2" fill="freeze"/>
+        <animate id="spinner_S3Gg" begin="spinner_Q0bx.end" attributeName="y" dur="0.2s" values="28;2" fill="freeze"/>
+      </rect>
+      <rect x="2" y="28" rx="2" width="20" height="20" fill="black">
+        <animate id="spinner_1FwE" begin="spinner_FFyM.end" attributeName="y" dur="0.2s" values="28;2" fill="freeze"/>
+        <animate id="spinner_gH4o" begin="spinner_AIvE.end" attributeName="x" dur="0.2s" values="2;28" fill="freeze"/>
+        <animate id="spinner_Q0bx" begin="spinner_wWCL.end" attributeName="y" dur="0.2s" values="2;28" fill="freeze"/>
+        <animate id="spinner_HDCY" begin="spinner_S3Gg.end" attributeName="x" dur="0.2s" values="28;2" fill="freeze"/>
+      </rect>
+</svg>
+
+    </div>
+
+    <script src="first.js"></script>
+  </body>
+</html>
